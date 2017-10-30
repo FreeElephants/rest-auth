@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-IMAGE_TAG=$(./tools/get-image.sh)-base
+source .env
 
-docker build -f Dockerfile -t ${IMAGE_TAG} .
+docker build -f Dockerfile -t ${DOCKER_IMAGE}-base .

@@ -4,6 +4,12 @@
     },
     "require": {
         "free-elephants/di": "^1.6",
-        "free-elephants/rest-daemon": "0.7.0"
+        "free-elephants/rest-daemon": "0.7.1",
+        "doctrine/orm": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "FreeElephants\\RestAuth\\": "src/FreeElephants/RestAuth/"
+        }
     }
 }

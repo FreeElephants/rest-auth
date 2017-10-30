@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-source .env
-
-echo ${DOCKER_REGISTRY}/${DOCKER_REPOSITORY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION}

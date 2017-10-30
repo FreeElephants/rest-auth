@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-IMAGE_TAG=$(./tools/get-image.sh)-dev
+source .env
+IMAGE_TAG=${DOCKER_IMAGE}-dev
 
-docker run -d \
+docker run --rm --tty --sig-proxy=false \
     --volume $(pwd):/srv/rest-auth \
     -p 8080:8080 \
     ${IMAGE_TAG} \

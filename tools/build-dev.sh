@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-FROM_IMAGE_NAME=$(./tools/get-image.sh)-base
-IMAGE_TAG=$(./tools/get-image.sh)-dev
+source .env
+
+FROM_IMAGE_NAME=${DOCKER_IMAGE}-base
+IMAGE_TAG=${DOCKER_IMAGE}-dev
 
 docker build \
     --build-arg FROM_IMAGE_NAME=${FROM_IMAGE_NAME} \

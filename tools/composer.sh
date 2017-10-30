@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-DEV_IMAGE=$(./tools/get-image.sh)-dev
+source .env
+
+DEV_IMAGE=${DOCKER_IMAGE}-dev
 
 mkdir -p $HOME/.composer/cache/
 
