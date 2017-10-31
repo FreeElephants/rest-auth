@@ -19,9 +19,9 @@ class UserRegistrationDto
      */
     private $email;
 
-    public function __construct(array $inputData)
+    public function __construct(string $guid, array $inputData)
     {
-        $this->guid = $inputData['guid'];
+        $this->guid = $guid;
         $this->login = $inputData['login'];
         $this->email = $inputData['email'];
     }

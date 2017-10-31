@@ -14,6 +14,7 @@ $origin = ['*'];
 $server = new RestServer($httpHost, $port, $address, $origin, RestServer::RATCHET_HTTP_DRIVER);
 $components = require_once __DIR__ . '/../config/components.php';
 $di = (new InjectorBuilder())->buildFromArray($components);
+$di->allowInstantiateNotRegisteredTypes(true);
 $builder = new RestServerBuilder($di);
 $builder->setServer($server);
 $builder->setHandlerFactory(new InjectionHandlerFactory($di));

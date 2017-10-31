@@ -11,6 +11,8 @@ docker run --rm -d \
     ${DEV_IMAGE} \
     php bin/server.php >> /dev/null
 
+docker logs ${CONTAINER_NAME}
+
 docker exec --interactive --tty \
     ${CONTAINER_NAME} vendor/bin/codecept $@
 

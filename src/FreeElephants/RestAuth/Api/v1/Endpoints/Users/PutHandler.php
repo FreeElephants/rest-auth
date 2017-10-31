@@ -4,10 +4,14 @@
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Repository\RepositoryFactory;
+use FreeElephants\RestAuth\Domain\Exception\GuidAlreadyExistsException;
+use FreeElephants\RestAuth\Domain\User\Exception\EmailAlreadyExistsException;
+use FreeElephants\RestAuth\Domain\User\Exception\LoginAlreadyExistsExeption;
+use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;
+use FreeElephants\RestAuth\Domain\User\RegistrationService;
+use FreeElephants\RestAuth\Domain\User\UserRegistrationDto;
 use FreeElephants\RestAuth\Entity\User;
-use FreeElephants\RestAuth\Entity\UserRepository;
+use FreeElephants\RestAuth\Exception\DomainException;
 use FreeElephants\RestDaemon\Endpoint\Handler\AbstractEndpointMethodHandler;
 use FreeElephants\RestDaemon\Util\ParamsContainer;
 use Psr\Http\Message\ResponseInterface;
@@ -16,19 +20,11 @@ use Psr\Http\Message\ServerRequestInterface;
 class PutHandler extends AbstractEndpointMethodHandler
 {
 
-    /**
-     * @var RepositoryFactory
-     */
-    private $userRepository;
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private $registrationService;
 
-    public function __construct(UserRepository $userRepository, EntityManagerInterface $entityManager)
+    public function __construct(RegistrationService $registrationService)
     {
-        $this->userRepository = $userRepository;
-        $this->entityManager = $entityManager;
+        $this->registrationService = $registrationService;
     }
 
     public function __invoke(
@@ -37,21 +33,22 @@ class PutHandler extends AbstractEndpointMethodHandler
         callable $next
     ): ResponseInterface {
         $guid = $request->getAttribute('guid');
-        $user = new User();
         /**@var ParamsContainer $requestParams */
         $requestParams = $request->getParsedBody();
-        $user->setGuid($guid);
-        $user->setEmail($requestParams->get('email'));
-        $user->setLogin($requestParams->get('login'));
-        $user->setPassword($requestParams->get('password'));
+        $userRegistrationDto = new UserRegistrationDto($guid, $requestParams->getArrayCopy());
+
         try {
-            $this->entityManager->persist($user);
+            $user = $this->registrationService->registerUser($userRegistrationDto);
             $response = $response->withStatus(201);
             $response->getBody()->write(json_encode([
                 'login' => $user->getLogin()
             ]));
+        } catch (UserDataValidationError $e) {
+            $response = $response->withStatus(400);
+            $response->getBody()->write(json_encode(['error' => ['message' => $e->getMessage()]]));
         } catch (\Throwable $e) {
-
+            $response = $response->withStatus(500);
+            $response->getBody()->write(json_encode(['error' => ['message' => $e->getMessage()]]));
         }
 
         return $next($request, $response);

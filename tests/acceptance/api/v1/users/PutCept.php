@@ -18,9 +18,9 @@ $I->sendPUT('/api/v1/users/6F9619FF-8B86-D011-B42D-00CF4FC964FF', [
     'email' => 'foo@bar.com',
     'password' => 'password'
 ]);
-$I->seeResponseCodeIs(405);
+$I->seeResponseCodeIs(400);
 $I->seeResponseContainsJson([
     'error' => [
-        'message' => 'User with guid \'6F9619FF-8B86-D011-B42D-00CF4FC964FF\' already exists',
+        'message' => 'User with given guid \'6F9619FF-8B86-D011-B42D-00CF4FC964FF\' already exists. ',
     ],
 ]);
