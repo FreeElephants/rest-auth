@@ -27,9 +27,11 @@ class GetHandler extends AbstractEndpointMethodHandler
         callable $next
     ): ResponseInterface {
         $guid = $request->getAttribute('guid');
-        $user = $this->userRepository->find($guid);
-
-        $response->getBody()->write(json_encode(['login' => $user->getLogin()]));
+        if ($user = $this->userRepository->find($guid)) {
+            $response->getBody()->write(json_encode(['login' => $user->getLogin()]));
+        } else {
+            $response = $response->withStatus(404);
+        }
 
         return $next($request, $response);
     }

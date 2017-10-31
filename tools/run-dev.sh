@@ -8,4 +8,4 @@ docker run --rm --tty --interactive \
     -p 8080:8080 \
     ${IMAGE_TAG} \
     bash
-#    php bin/server.php
+    php bin/server.php

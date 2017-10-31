@@ -76,4 +76,14 @@ class User
     {
         return $this->login;
     }
+
+    public function getGuid(): string
+    {
+        return $this->guid;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 }

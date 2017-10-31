@@ -2,9 +2,21 @@
 
 source .env
 DEV_IMAGE=${DOCKER_IMAGE}-dev
-
-docker run --rm --interactive --tty \
-    --user $UID:$UID \
-    --volume $PWD:/srv/rest-auth \
+CONTAINER_NAME=rest-auth-dev
+echo "Run ${CONTAINER_NAME}"
+docker run --rm -d \
+    --volume $(pwd):/srv/rest-auth \
+    --name ${CONTAINER_NAME} \
     --network host \
-    ${DEV_IMAGE} vendor/bin/codecept $@
+    ${DEV_IMAGE} \
+    php bin/server.php >> /dev/null
+
+docker exec --interactive --tty \
+    ${CONTAINER_NAME} vendor/bin/codecept $@
+
+RESULT=$?
+
+echo "stopping ${CONTAINER_NAME}..."
+docker stop ${CONTAINER_NAME} >> /dev/null
+
+exit $RESULT
