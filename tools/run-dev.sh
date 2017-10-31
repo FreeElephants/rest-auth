@@ -3,8 +3,9 @@
 source .env
 IMAGE_TAG=${DOCKER_IMAGE}-dev
 
-docker run --rm --tty --sig-proxy=false \
+docker run --rm --tty --interactive \
     --volume $(pwd):/srv/rest-auth \
     -p 8080:8080 \
     ${IMAGE_TAG} \
-    php bin/server.php
+    bash
+#    php bin/server.php

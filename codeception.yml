@@ -8,10 +8,3 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-modules:
-    config:
-        Db:
-            dsn: 'sqlite:////tmp/somedb.sqlite'
-            dump: tests/_data/dump.sql
-            cleanup: true # reload dump between tests
-            populate: true # load dump before all tests

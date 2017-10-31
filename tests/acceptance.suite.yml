@@ -6,6 +6,14 @@
 
 actor: AcceptanceTester
 modules:
+    config:
+        Db:
+            dsn: 'sqlite:somedb.sqlite'
+            user:
+            password:
+            dump: tests/_data/dump.sql
+            cleanup: true # reload dump between tests
+            populate: true # load dump before all tests
     enabled:
         - REST:
             depends: PhpBrowser
@@ -14,3 +22,4 @@ modules:
             url: http://127.0.0.1:8080
             curl:
               CURLOPT_TIMEOUT: 1
+        - Db:

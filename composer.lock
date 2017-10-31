@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4e7bcdcb418bd3ec30e93ae7be3bbaa",
+    "content-hash": "669fcafa82bbb688e724589b77601d52",
     "packages": [
         {
             "name": "amphp/aerys",
@@ -1748,16 +1748,16 @@
         },
         {
             "name": "free-elephants/rest-daemon",
-            "version": "0.7.1",
+            "version": "0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FreeElephants/rest-daemon.git",
-                "reference": "65abf4bcd598fca55a8d49eb659589d6d3331082"
+                "reference": "71b2d18f4dac31148758114d84cb20cab98fb3bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FreeElephants/rest-daemon/zipball/65abf4bcd598fca55a8d49eb659589d6d3331082",
-                "reference": "65abf4bcd598fca55a8d49eb659589d6d3331082",
+                "url": "https://api.github.com/repos/FreeElephants/rest-daemon/zipball/71b2d18f4dac31148758114d84cb20cab98fb3bf",
+                "reference": "71b2d18f4dac31148758114d84cb20cab98fb3bf",
                 "shasum": ""
             },
             "require": {
@@ -1794,7 +1794,7 @@
                     "email": "samizdam@inbox.ru"
                 }
             ],
-            "time": "2017-10-29T22:50:17+00:00"
+            "time": "2017-10-30T21:46:38+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

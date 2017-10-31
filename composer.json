@@ -4,7 +4,7 @@
     },
     "require": {
         "free-elephants/di": "^1.6",
-        "free-elephants/rest-daemon": "0.7.1",
+        "free-elephants/rest-daemon": "^0.8",
         "doctrine/orm": "^2.5"
     },
     "autoload": {

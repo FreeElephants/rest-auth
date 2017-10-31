@@ -3,8 +3,7 @@
 
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
-
-use FreeElephants\RestDaemon\Endpoint\AbstractEndpointMethodHandler;
+use FreeElephants\RestDaemon\Endpoint\Handler\AbstractEndpointMethodHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
