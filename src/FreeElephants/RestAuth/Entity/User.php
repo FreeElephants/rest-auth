@@ -35,7 +35,7 @@ class User
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $password;
+    private $passwordHash;
 
     /**
      * @param string $guid
@@ -54,11 +54,11 @@ class User
     }
 
     /**
-     * @param string $password
+     * @param string $passwordHash
      */
-    public function setPassword(string $password)
+    public function setPasswordHash(string $passwordHash)
     {
-        $this->password = $password;
+        $this->passwordHash = $passwordHash;
     }
 
     /**

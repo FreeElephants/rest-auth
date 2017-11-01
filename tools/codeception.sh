@@ -17,7 +17,7 @@ docker exec --interactive --tty \
     ${CONTAINER_NAME} vendor/bin/codecept $@
 
 RESULT=$?
-
+docker logs ${CONTAINER_NAME}
 echo "stopping ${CONTAINER_NAME}..."
 docker stop ${CONTAINER_NAME} >> /dev/null
 

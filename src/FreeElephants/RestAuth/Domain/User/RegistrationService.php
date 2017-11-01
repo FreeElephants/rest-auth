@@ -20,11 +20,16 @@ class RegistrationService
      * @var UserRepository
      */
     private $userRepository;
+    /**
+     * @var PasswordService
+     */
+    private $passwordService;
 
-    public function __construct(EntityManagerInterface $entityManager, UserRepository $userRepository)
+    public function __construct(EntityManagerInterface $entityManager, UserRepository $userRepository, PasswordService $passwordService)
     {
         $this->entityManager = $entityManager;
         $this->userRepository = $userRepository;
+        $this->passwordService = $passwordService;
     }
 
     public function registerUser(UserRegistrationDto $userRegistrationDto): User
@@ -41,7 +46,7 @@ class RegistrationService
             $errors[] = sprintf('User with given email \'%s\' already exists. ', $userWithEmail->getEmail());
         }
         if ($userWithLogin) {
-            $errors[] = sprintf('User with given login \'%s\' already exists. ', $userWithEmail->getLogin());
+            $errors[] = sprintf('User with given login \'%s\' already exists. ', $userWithLogin->getLogin());
         }
 
         if ($errors) {
@@ -52,8 +57,9 @@ class RegistrationService
         $user->setGuid($userRegistrationDto->getGuid());
         $user->setLogin($userRegistrationDto->getLogin());
         $user->setEmail($userRegistrationDto->getEmail());
+        $user->setPasswordHash($this->passwordService->hash($userRegistrationDto->getPassword()));
         $this->entityManager->persist($user);
-
+        $this->entityManager->flush();
         return $user;
     }
 

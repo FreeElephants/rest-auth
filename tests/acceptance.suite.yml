@@ -8,9 +8,9 @@ actor: AcceptanceTester
 modules:
     config:
         Db:
-            dsn: 'sqlite:somedb.sqlite'
-            user:
-            password:
+            dsn: 'sqlite:db.sqlite'
+            user: ''
+            password: ''
             dump: tests/_data/dump.sql
             cleanup: true # reload dump between tests
             populate: true # load dump before all tests

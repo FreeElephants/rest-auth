@@ -3,21 +3,15 @@
 
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
-
-use FreeElephants\RestAuth\Domain\Exception\GuidAlreadyExistsException;
-use FreeElephants\RestAuth\Domain\User\Exception\EmailAlreadyExistsException;
-use FreeElephants\RestAuth\Domain\User\Exception\LoginAlreadyExistsExeption;
 use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;
 use FreeElephants\RestAuth\Domain\User\RegistrationService;
 use FreeElephants\RestAuth\Domain\User\UserRegistrationDto;
-use FreeElephants\RestAuth\Entity\User;
-use FreeElephants\RestAuth\Exception\DomainException;
 use FreeElephants\RestDaemon\Endpoint\Handler\AbstractEndpointMethodHandler;
 use FreeElephants\RestDaemon\Util\ParamsContainer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class PutHandler extends AbstractEndpointMethodHandler
+class PostHandler extends AbstractEndpointMethodHandler
 {
 
     private $registrationService;
