@@ -1,5 +1,8 @@
 # REST Auth Microservice
 
+## Requirements
+- docker v17.05 or higher
+- current user in docker group or sudo
 
 ## Contributing
 ```bash
@@ -8,6 +11,8 @@ cd rest-auth
 ./tools/build-base.sh
 ./tools/build-dev.sh
 ./tools/composer.sh install
+# for tests run
+./tools/codeception.sh run
 ```
 
 Run codecep
