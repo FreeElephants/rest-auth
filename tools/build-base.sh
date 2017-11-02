@@ -2,4 +2,4 @@
 
 source .env
 
-docker build -f Dockerfile -t ${DOCKER_IMAGE}-base .
+docker build -t ${DOCKER_IMAGE}-base .

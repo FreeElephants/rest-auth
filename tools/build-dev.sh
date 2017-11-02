@@ -7,5 +7,5 @@ IMAGE_TAG=${DOCKER_IMAGE}-dev
 
 docker build \
     --build-arg FROM_IMAGE_NAME=${FROM_IMAGE_NAME} \
-    -f Dockerfile-dev \
+    -f dev.Dockerfile \
     -t ${IMAGE_TAG} .
