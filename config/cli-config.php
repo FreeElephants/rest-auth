@@ -1,4 +1,7 @@
 <?php
+/**
+ * Doctrine cli entry.
+ */
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Doctrine\ORM\EntityManagerInterface;

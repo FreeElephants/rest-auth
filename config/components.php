@@ -1,6 +1,9 @@
 <?php
-
+/**
+ * DI-components registration and services initialization.
+ */
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/const.php';
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,7 +16,6 @@ $isDevMode = false;
 
 // the connection configuration
 $dbParams = [
-    'driver' => 'pdo_sqlite',
     'url' => 'sqlite:////srv/rest-auth/db.sqlite'
 ];
 
