@@ -1,12 +1,12 @@
 <?php
 
 
-namespace FreeElephants\RestAuth\Entity;
+namespace FreeElephants\RestAuth\Domain\User;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="FreeElephants\RestAuth\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="UserRepository")
  */
 class User
 {

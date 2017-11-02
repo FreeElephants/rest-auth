@@ -6,8 +6,6 @@ namespace FreeElephants\RestAuth\Domain\User;
 
 use Doctrine\ORM\EntityManagerInterface;
 use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;
-use FreeElephants\RestAuth\Entity\User;
-use FreeElephants\RestAuth\Entity\UserRepository;
 
 class RegistrationService
 {

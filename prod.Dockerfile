@@ -6,4 +6,3 @@ COPY ./bin/ /srv/rest-auth/bin/
 COPY ./src/ /srv/rest-auth/src/
 COPY ./config/ /srv/rest-auth/config/
 COPY ./vendor/ /srv/rest-auth/vendor/
-COPY ./etc/ /etc/
