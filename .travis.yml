@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+- ./tools/build-base.sh
+- ./tools/build-dev.sh
+- ./tools/composer.sh install
+- ./tools/codeception.sh run -vvv
