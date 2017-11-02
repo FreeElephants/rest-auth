@@ -3,8 +3,17 @@ sudo: required
 services:
   - docker
 
-script:
+before_install:
+  # update docker
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get  -y install docker-ce
+
+install:
 - ./tools/build-base.sh
 - ./tools/build-dev.sh
-- ./tools/composer.sh install
+- ./tools/composer.sh install --prefer-dist
+
+script:
 - ./tools/codeception.sh run -vvv
