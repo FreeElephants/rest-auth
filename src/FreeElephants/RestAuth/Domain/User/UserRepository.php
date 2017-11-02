@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FreeElephants\RestAuth\Entity;
+namespace FreeElephants\RestAuth\Domain\User;
 
 
 use Doctrine\ORM\EntityRepository;

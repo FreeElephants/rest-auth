@@ -8,19 +8,14 @@ require_once __DIR__ . '/const.php';
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Setup;
-use FreeElephants\RestAuth\Entity\User;
-use FreeElephants\RestAuth\Entity\UserRepository;
+use FreeElephants\RestAuth\Domain\User\User;
+use FreeElephants\RestAuth\Domain\User\UserRepository;
 
-$paths = [__DIR__ . '/../src/FreeElephants/RestAuth/Entity/'];
-$isDevMode = false;
-
-// the connection configuration
-$dbParams = [
-    'url' => 'sqlite:////srv/rest-auth/db.sqlite'
-];
-
-$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
-$entityManager = EntityManager::create($dbParams, $config);
+$config = Setup::createAnnotationMetadataConfiguration([__DIR__ . '/../src/FreeElephants/RestAuth/Domain/'],
+    REST_AUTH_DEV_MODE, null, null, false);
+$entityManager = EntityManager::create([
+    'url' => REST_AUTH_DB_CONNECTION_URL
+], $config);
 
 return [
     'instances' => [

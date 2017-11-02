@@ -16,7 +16,8 @@ Run codecep
 
 REST Auth service use next env variables with default values: 
 ```
-REST_AUTH_DB_CONNECTION_URL=sqlite:////srv/rest-auth/db.sqlite # In doctine url connection format 
+REST_AUTH_DB_CONNECTION_URL=sqlite:////srv/rest-auth/db.sqlite # In doctine url connection format
+REST_AUTH_DEV_MODE=true # Doctrine dev mode 
 REST_AUTH_HTTP_HOST=127.0.0.1
 REST_AUTH_PORT=8080
 REST_AUTH_ADDRESS=0.0.0.0

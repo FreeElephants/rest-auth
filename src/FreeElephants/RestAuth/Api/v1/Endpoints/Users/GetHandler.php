@@ -3,7 +3,7 @@
 
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
-use FreeElephants\RestAuth\Entity\UserRepository;
+use FreeElephants\RestAuth\Domain\User\UserRepository;
 use FreeElephants\RestDaemon\Endpoint\Handler\AbstractEndpointMethodHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -12,7 +12,7 @@ class GetHandler extends AbstractEndpointMethodHandler
 {
 
     /**
-     * @var UserRepository
+     * @var \FreeElephants\RestAuth\Domain\User\UserRepository
      */
     private $userRepository;
 
