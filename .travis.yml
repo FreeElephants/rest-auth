@@ -1,0 +1,32 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  # update docker
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get  -y install docker-ce
+
+install:
+- ./tools/build-base.sh
+- ./tools/build-dev.sh
+- ./tools/composer.sh install --prefer-dist
+
+script:
+- ./tools/codeception.sh run -vvv
+
+after_success:
+# update image in docker hub
+  - if [[ "$TRAVIS_TAG" ]]; then
+    source .env
+    ./tools/build-prod.sh
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push freeelephants/thruway:"$VERSION";
+    fi
+
+cache:
+  directories:
+    - $HOME/.composer/cache
