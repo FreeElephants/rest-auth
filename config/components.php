@@ -8,6 +8,8 @@ require_once __DIR__ . '/const.php';
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Setup;
+use FreeElephants\Jwt\EncoderInterface;
+use FreeElephants\Jwt\Firebase\FirebaseEncoderAdapter;
 use FreeElephants\RestAuth\Domain\User\User;
 use FreeElephants\RestAuth\Domain\User\UserRepository;
 
@@ -21,5 +23,6 @@ return [
     'instances' => [
         EntityManagerInterface::class => $entityManager,
         UserRepository::class => $entityManager->getRepository(User::class),
+        EncoderInterface::class => new FirebaseEncoderAdapter('secret')
     ]
 ];

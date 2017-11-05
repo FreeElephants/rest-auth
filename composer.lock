@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "669fcafa82bbb688e724589b77601d52",
+    "content-hash": "cc708d3546290565d672b28fcda449db",
     "packages": [
         {
             "name": "amphp/aerys",
@@ -1703,6 +1703,52 @@
             "time": "2017-01-13T15:48:08+00:00"
         },
         {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
+        },
+        {
             "name": "free-elephants/di",
             "version": "1.6.0",
             "source": {
@@ -1745,6 +1791,41 @@
             ],
             "description": "IoC, constructor dependency injection",
             "time": "2017-10-28T22:08:11+00:00"
+        },
+        {
+            "name": "free-elephants/jwt",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FreeElephants/jwt.git",
+                "reference": "6dc8048b57d0fb1471913e5efc25f30c2c8f9700"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FreeElephants/jwt/zipball/6dc8048b57d0fb1471913e5efc25f30c2c8f9700",
+                "reference": "6dc8048b57d0fb1471913e5efc25f30c2c8f9700",
+                "shasum": ""
+            },
+            "require": {
+                "firebase/php-jwt": "^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "FreeElephants\\Jwt\\": "src/FreeElephants/Jwt/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "samizdam",
+                    "email": "samizdam@inbox.ru"
+                }
+            ],
+            "time": "2017-08-18T15:38:37+00:00"
         },
         {
             "name": "free-elephants/rest-daemon",
@@ -4933,6 +5014,51 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2017-10-05T14:43:42+00:00"
+        },
+        {
+            "name": "teapot/status-code",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teapot-php/status-code.git",
+                "reference": "b00d391bbdfe624b9f79486cf7e1eece6c477d94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teapot-php/status-code/zipball/b00d391bbdfe624b9f79486cf7e1eece6c477d94",
+                "reference": "b00d391bbdfe624b9f79486cf7e1eece6c477d94",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpmd/phpmd": ">=1.4.0",
+                "squizlabs/php_codesniffer": "1.*",
+                "theseer/phpdox": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Teapot\\StatusCode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barney Hanlon",
+                    "email": "barney@shrikeh.net"
+                }
+            ],
+            "description": "PHP HTTP Response Status code ibrary",
+            "homepage": "http://shrikeh.github.com/teapot",
+            "keywords": [
+                "http"
+            ],
+            "time": "2017-09-01T13:40:29+00:00"
         },
         {
             "name": "theseer/tokenizer",
