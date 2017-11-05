@@ -1,8 +1,6 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Domain\User;
-
 
 use Doctrine\ORM\EntityManagerInterface;
 use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;

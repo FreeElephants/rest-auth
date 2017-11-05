@@ -1,8 +1,6 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Domain\User\Exception;
-
 
 use FreeElephants\RestAuth\Exception\DomainException;
 

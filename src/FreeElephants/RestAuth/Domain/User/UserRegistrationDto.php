@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Domain\User;
 
 class UserRegistrationDto

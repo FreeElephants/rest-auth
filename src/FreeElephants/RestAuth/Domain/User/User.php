@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Domain\User;
 
 use Doctrine\ORM\Mapping as ORM;

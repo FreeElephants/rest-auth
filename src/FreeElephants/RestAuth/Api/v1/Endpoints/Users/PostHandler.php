@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
 use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;
