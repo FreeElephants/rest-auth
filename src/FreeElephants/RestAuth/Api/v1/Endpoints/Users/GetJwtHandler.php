@@ -54,7 +54,7 @@ class GetJwtHandler extends AbstractEndpointMethodHandler
                         $authorizedUser->getPasswordHash());
                     if ($authorizedUser && $isPasswordVerified) {
                         if ($authorizedUser === $user) {
-                            $response = $response->withStatus(200);
+                            $response = $response->withStatus(Http::OK);
                             $tokenData = [
                                 'guid' => '2c044f97-c0a5-4267-833a-b6fedba93ffa',
                                 'login' => 'test',
@@ -66,10 +66,10 @@ class GetJwtHandler extends AbstractEndpointMethodHandler
                                 'jwt' => $jwt
                             ]));
                         } else {
-                            $response = $response->withStatus(403);
+                            $response = $response->withStatus(Http::FORBIDDEN);
                         }
                     } else {
-                        $response = $response->withStatus(401);
+                        $response = $response->withStatus(Http::UNAUTHORIZED);
                     }
                 } else {
                     $response = $response->withStatus(Http::BAD_REQUEST);
