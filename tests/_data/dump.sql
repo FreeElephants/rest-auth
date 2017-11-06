@@ -7,4 +7,9 @@ INSERT INTO User VALUES (
   'test@mail.com',
   'test',
   '$2y$10$UvkhcHCNJn.BGLA/bMQs9eXGQqH5AxaWdEEGD6oMrULuIAe7JTREW'
+), (
+  'd44702cc-661e-4a2e-a696-bc378e223d85',
+  'another-test@mail.com',
+  'another-test',
+  '$2y$10$DQsYmRI9rgug11dfuaU4ge3LbbeIMd2bNvhZ1Qu9FIVdpAG6Hh8hW'
 )

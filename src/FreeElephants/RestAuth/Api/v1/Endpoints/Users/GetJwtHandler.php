@@ -74,8 +74,9 @@ class GetJwtHandler extends AbstractEndpointMethodHandler
                 } else {
                     $response = $response->withStatus(Http::BAD_REQUEST);
                 }
+            } else {
+                $response = $response->withStatus(Http::UNAUTHORIZED);
             }
-
         } else {
             $response = $response->withStatus(Http::NOT_FOUND);
         }
