@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Domain\User;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -85,5 +84,10 @@ class User
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    public function getPasswordHash(): string
+    {
+        return $this->passwordHash;
     }
 }

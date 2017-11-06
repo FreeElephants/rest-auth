@@ -1,6 +1,5 @@
 <?php
 
-
 namespace FreeElephants\RestAuth\Api\v1\Endpoints\Users;
 
 use FreeElephants\RestAuth\Domain\User\Exception\UserDataValidationError;
@@ -10,6 +9,7 @@ use FreeElephants\RestDaemon\Endpoint\Handler\AbstractEndpointMethodHandler;
 use FreeElephants\RestDaemon\Util\ParamsContainer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Teapot\StatusCode\Http;
 
 class PostHandler extends AbstractEndpointMethodHandler
 {
@@ -33,15 +33,15 @@ class PostHandler extends AbstractEndpointMethodHandler
 
         try {
             $user = $this->registrationService->registerUser($userRegistrationDto);
-            $response = $response->withStatus(201);
+            $response = $response->withStatus(Http::CREATED);
             $response->getBody()->write(json_encode([
                 'login' => $user->getLogin()
             ]));
         } catch (UserDataValidationError $e) {
-            $response = $response->withStatus(400);
+            $response = $response->withStatus(Http::BAD_REQUEST);
             $response->getBody()->write(json_encode(['error' => ['message' => $e->getMessage()]]));
         } catch (\Throwable $e) {
-            $response = $response->withStatus(500);
+            $response = $response->withStatus(Http::INTERNAL_SERVER_ERROR);
             $response->getBody()->write(json_encode(['error' => ['message' => $e->getMessage()]]));
         }
 

@@ -5,7 +5,9 @@
     "require": {
         "free-elephants/di": "^1.6",
         "free-elephants/rest-daemon": "^0.8",
-        "doctrine/orm": "^2.5"
+        "doctrine/orm": "^2.5",
+        "free-elephants/jwt": "^0.3.0",
+        "teapot/status-code": "^1.1"
     },
     "autoload": {
         "psr-4": {
