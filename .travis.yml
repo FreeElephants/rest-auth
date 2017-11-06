@@ -24,7 +24,8 @@ after_success:
     ./tools/composer.sh install --prefer-dist --no-dev
     ./tools/build-prod.sh
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push freeelephants/thruway:"$VERSION";
+    source .env
+    docker push ${DOCKER_IMAGE};
     fi
 
 cache:
