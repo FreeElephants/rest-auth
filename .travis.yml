@@ -21,7 +21,7 @@ script:
 after_success:
 # update image in docker hub
   - if [[ "$TRAVIS_TAG" ]]; then
-    source .env
+    ./tools/composer.sh install --prefer-dist --no-dev
     ./tools/build-prod.sh
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push freeelephants/thruway:"$VERSION";
