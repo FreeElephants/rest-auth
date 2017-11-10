@@ -1,5 +1,10 @@
 <?php
 
+namespace FreeElephantsTests\RestAuth\acceptance\api\v1\users;
+
+use AbstractCest;
+use AcceptanceTester;
+
 class GetJwtCest extends AbstractCest
 {
 
@@ -7,7 +12,7 @@ class GetJwtCest extends AbstractCest
     {
         $I->wantToTest('get user jwt');
         $I->haveHttpHeader('Authorization', self::TEST_USER_LOGIN . ':' . self::TEST_USER_PASSWORD);
-        $I->sendGET('/api/v1/users/' . self::TEST_USER_GUID . '/jwt');
+        $I->sendGET('/api/v1/auth/jwt');
 
 //{
 //  "typ": "JWT",
@@ -33,32 +38,15 @@ class GetJwtCest extends AbstractCest
     {
         $I->wantToTest('get user jwt with wrong authorization header');
         $I->haveHttpHeader('Authorization', 'test' . ':' . 'wrong_password!!');
-        $I->sendGET('/api/v1/users/' . self::TEST_USER_GUID . '/jwt');
+        $I->sendGET('/api/v1/auth/jwt');
         $I->seeResponseCodeIs(401);
     }
 
     public function withoutAuthorizationHeaderTest(AcceptanceTester $I)
     {
         $I->wantToTest('get user jwt without authorization header');
-        $I->sendGET('/api/v1/users/' . self::TEST_USER_GUID . '/jwt');
+        $I->sendGET('/api/v1/auth/jwt');
         $I->seeResponseCodeIs(401);
     }
-
-    public function withAnotherAuthorizationDataTest(AcceptanceTester $I)
-    {
-        $I->wantToTest('get jwt for another user');
-        $I->haveHttpHeader('Authorization', self::TEST_USER_LOGIN . ':' . self::TEST_USER_PASSWORD);
-        $I->sendGET('/api/v1/users/' . self::ANOTHER_TEST_USER_GUID . '/jwt');
-        $I->seeResponseCodeIs(403);
-    }
-
-    public function notFoundUserTest(AcceptanceTester $I)
-    {
-        $I->wantToTest('get jwt for non existed user');
-        $I->haveHttpHeader('Authorization', self::TEST_USER_LOGIN . ':' . self::TEST_USER_PASSWORD);
-        $I->sendGET('/api/v1/users/some-guid/jwt');
-        $I->seeResponseCodeIs(404);
-    }
-
 
 }
