@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  rest:
+    container_name: rest-auth
+    image: $DOCKER_IMAGE-dev
+    volumes:
+      - .:/srv/rest-auth
+    build:
+      dockerfile: dev.Dockerfile
+      context: .
+    command: php bin/server.php

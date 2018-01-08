@@ -1,5 +1,10 @@
 <?php
 
+namespace FreeElephantsTests\RestAuth\acceptance\api\v1\users;
+
+use AbstractCest;
+use AcceptanceTester;
+
 class PostCest extends AbstractCest
 {
     public function registerNewUserTest(AcceptanceTester $I)

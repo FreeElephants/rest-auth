@@ -6,6 +6,37 @@
 - docker v17.05 or higher
 - current user in docker group or sudo
 
+## Install, Configure and Run
+
+...TBD... 
+
+## Usage
+
+### User Resource
+
+#### Create User
+
+```bash
+POST /api/v1/users/{GUID}
+{
+    "login": "some login",
+    "email": "some@email",
+    "password": "password"
+}
+```
+
+#### Get Public User Profile
+```bash
+GET /api/v1/users/{GUID}
+```
+
+### Auth Resource
+#### Get JWT
+```bash
+GET /api/v1/auth/jwt 
+HEADERS: Authorization: "{login}:{password}"
+```
+
 ## Contributing
 ```bash
 git clone git@github.com:FreeElephants/rest-auth.git
@@ -16,8 +47,6 @@ cd rest-auth
 # for tests run
 ./tools/codeception.sh run
 ```
-
-Run codecep
 
 ## Configuration (ENV Variables)
 

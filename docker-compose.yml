@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  rest:
+    container_name: rest-auth
+    image: $DOCKER_IMAGE
+    command: ls -la bin
+    ports:
+      - "8080:8080"

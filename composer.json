@@ -4,7 +4,7 @@
     },
     "require": {
         "free-elephants/di": "^1.6",
-        "free-elephants/rest-daemon": "^0.8",
+        "free-elephants/rest-daemon": "dev-master",
         "doctrine/orm": "^2.5",
         "free-elephants/jwt": "^0.3.0",
         "teapot/status-code": "^1.1"
